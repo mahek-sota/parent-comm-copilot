@@ -1,0 +1,5 @@
+event_type,display_name,requires_injury_field,requires_action_field
+incident,Incident Report,true,true
+daily_update,Daily Update,false,false
+behavior_note,Behavior Note,false,false
+reminder,Parent Reminder,false,false

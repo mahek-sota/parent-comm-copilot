@@ -1,0 +1,6 @@
+teacher_id,name,email,classroom_id
+1,Ms. Rivera,l.rivera@sunrisecenter.edu,infant_a
+2,Mr. Thompson,d.thompson@sunrisecenter.edu,infant_a
+3,Ms. Patel,s.patel@sunrisecenter.edu,toddler_b
+4,Ms. Chen,m.chen@sunrisecenter.edu,toddler_b
+5,Mr. Williams,j.williams@sunrisecenter.edu,preschool_c

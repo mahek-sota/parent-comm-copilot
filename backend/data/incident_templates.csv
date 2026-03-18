@@ -1,0 +1,6 @@
+template_id,event_type,tone,template_text
+1,incident,friendly,"Hi {parent_name}, just a quick note to let you know that {child_name} had a small incident today. Our staff responded right away and {child_name} is doing well. Please don't hesitate to reach out with any questions. – {classroom} Team"
+2,incident,professional,"Dear {parent_name}, this message is to inform you that {child_name} experienced an incident during today's session. All necessary protocols were followed and {child_name} received appropriate care. Please contact us for further details. – {classroom} Team"
+3,incident,brief,"{child_name} had a minor incident today. Staff responded promptly. – {classroom} Team"
+4,daily_update,friendly,"Hi {parent_name}! Just wanted to share a quick update on {child_name}'s day. They had a wonderful time and were in great spirits. – {classroom} Team"
+5,behavior_note,professional,"Dear {parent_name}, we wanted to share a brief observation about {child_name}'s behavior today. Our teachers are here to support {child_name}'s development. Please feel free to schedule a time to discuss further. – {classroom} Team"

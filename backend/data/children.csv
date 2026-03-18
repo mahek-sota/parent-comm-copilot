@@ -1,0 +1,13 @@
+child_id,name,classroom_id,parent_email,allergies,notes
+1,Emma Johnson,toddler_b,johnson.family@gmail.com,none,""
+2,Noah Smith,infant_a,ksmith.family@outlook.com,peanuts,Has EpiPen on file
+3,Sophia Martinez,preschool_c,cmartinez@yahoo.com,none,Early pickup on Fridays
+4,Liam Patel,toddler_b,r.patel@gmail.com,dairy,"Lactose intolerant — no dairy snacks"
+5,Olivia Chen,infant_a,chen.family@icloud.com,none,Prefers bottle at 10am and 2pm
+6,Aiden Williams,preschool_c,twilliams@hotmail.com,tree nuts,"EpiPen in cubby, notify immediately"
+7,Isabella Thompson,toddler_b,mthompson@gmail.com,none,Comfort toy is a blue elephant
+8,Lucas Rivera,infant_a,j.rivera@outlook.com,none,Nap schedule: 11am and 3pm
+9,Mia Nguyen,preschool_c,tnguyen@gmail.com,bee stings,"EpiPen on file, outdoor activities notify staff"
+10,Ethan Brown,toddler_b,sbrown@yahoo.com,none,Speech therapy on Tuesdays at noon
+11,Ava Garcia,preschool_c,dgarcia@gmail.com,none,Vegetarian diet — no meat products
+12,Jackson Lee,infant_a,hlee@icloud.com,none,Prefers swaddling during nap

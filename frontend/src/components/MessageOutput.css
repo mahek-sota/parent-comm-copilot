@@ -1,0 +1,217 @@
+.message-empty {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--color-text-muted);
+}
+
+.message-empty-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.message-empty p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.message-hint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* ── Skeleton loader ─────────────────────────────── */
+.message-skeleton {
+  padding: 4px 0;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e4e4e4 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.skeleton-line--long  { width: 100%; }
+.skeleton-line--medium { width: 72%; }
+.skeleton-line--short  { width: 48%; }
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Result ──────────────────────────────────────── */
+.message-result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.meta-tag--blue {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.meta-tag--gray {
+  background: #f3f4f6;
+  color: var(--color-text-muted);
+}
+
+.message-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Send success banner ─────────────────────────── */
+.send-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.send-success-icon {
+  font-size: 18px;
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.send-success strong {
+  display: block;
+  font-size: 14px;
+  color: #15803d;
+}
+
+.send-success p {
+  font-size: 13px;
+  color: #166534;
+  margin-top: 2px;
+}
+
+.send-badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 3px 8px;
+  border-radius: 999px;
+  align-self: center;
+  text-align: right;
+  max-width: 160px;
+  line-height: 1.4;
+}
+
+.send-error {
+  background: var(--color-error-light);
+  border: 1px solid #fca5a5;
+  color: var(--color-error);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.message-to {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.message-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-copy {
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  background: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-copy:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-copy--success {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.btn-send {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-send:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.btn-send:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-send--sent {
+  background: var(--color-success);
+  border-color: var(--color-success);
+}

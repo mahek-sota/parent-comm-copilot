@@ -1,0 +1,29 @@
+.tone-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tone-pill {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1.4;
+}
+
+.tone-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.tone-pill--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}

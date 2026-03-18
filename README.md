@@ -2,6 +2,34 @@
 
 An AI-powered parent messaging demo built for childcare platforms like Playground. Teachers can generate polished, context-aware messages in seconds, send them with one click, manage message history, receive parent replies, and broadcast CSV-based notices to entire classrooms — all powered by Google Gemini AI.
 
+## Why This Project
+
+Playground solves a critical problem in childcare communication, but teacher workflows around messaging can still be repetitive and time-consuming.
+
+This project explores how AI can:
+- Reduce friction in daily teacher-parent communication
+- Standardize tone and quality of messages
+- Enable scalable, personalized messaging (bulk + individual)
+- Improve responsiveness with two-way communication
+
+Built as a prototype to demonstrate how this could integrate into a platform like Playground.
+
+## Demo
+
+[Add GIF or screenshots here]
+
+- Message generation flow
+- Bulk messaging UI
+- Reply inbox
+- CSV upload preview
+
+## Key Design Decisions
+
+- Used Gemini Flash for low-latency generation → suitable for real-time UI workflows
+- Structured prompts using event templates to ensure consistent tone
+- Built bulk messaging with per-message review to balance automation + control
+- Used async FastAPI + APScheduler to support scheduling without blocking requests
+
 ---
 
 ## Features
@@ -249,3 +277,13 @@ npm test
 - **Gemini rate limiting** — add retry logic or a request queue for high-volume use
 - **Push notifications** — notify teachers of new parent replies in real time
 - **Message templates** — allow teachers to save and reuse their favorite message structures
+
+---
+
+## Production Considerations
+
+- Replace demo email system with Playground messaging APIs
+- Add rate limiting + queueing for LLM requests
+- Move from SQLite → PostgreSQL
+- Add RBAC for teacher/classroom isolation
+- Add observability (logging, metrics, retries)

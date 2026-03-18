@@ -59,3 +59,4 @@ class GenerateMessageResponse(BaseModel):
     generated_message: str
     tone: str
     classroom: str
+    message_id: Optional[int] = None

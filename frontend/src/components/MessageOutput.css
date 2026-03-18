@@ -137,6 +137,20 @@
   line-height: 1.4;
 }
 
+.demo-badge {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #92400e;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  padding: 3px 8px;
+  border-radius: 999px;
+  align-self: center;
+  text-align: right;
+  line-height: 1.4;
+}
+
 .send-error {
   background: var(--color-error-light);
   border: 1px solid #fca5a5;

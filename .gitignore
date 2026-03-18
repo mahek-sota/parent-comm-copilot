@@ -32,3 +32,19 @@ Thumbs.db
 .cache/
 .npm/
 .eslintcache
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# pytest
+.pytest_cache/
+.coverage
+
+# SQLite database (generated at runtime from CSV seed)
+backend/data/*.db
+
+# Vite
+frontend/.vite/

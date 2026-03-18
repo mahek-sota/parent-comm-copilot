@@ -1,12 +1,13 @@
 import { useState } from 'react'
-
 import { sendMessage } from '../api'
 import './MessageOutput.css'
 
 export default function MessageOutput({ result, loading }) {
   const [copied, setCopied] = useState(false)
-  const [sendState, setSendState] = useState('idle') // 'idle' | 'sending' | 'sent' | 'error'
+  const [sendState, setSendState] = useState('idle')
   const [sendError, setSendError] = useState(null)
+  const [scheduledFor, setScheduledFor] = useState('')
+  const [showScheduler, setShowScheduler] = useState(false)
 
   async function handleCopy() {
     if (!result?.generated_message) return
@@ -15,20 +16,17 @@ export default function MessageOutput({ result, loading }) {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  async function handleSend() {
+  async function handleSend(scheduled = false) {
     if (!result || sendState === 'sending') return
     setSendState('sending')
     setSendError(null)
     try {
-      await sendMessage({
-        child_name: result.child_name,
-        parent_email: result.parent_email,
-        classroom: result.classroom,
-        event_type: result.event_type,
-        generated_message: result.generated_message,
-        tone: result.tone,
-      })
-      setSendState('sent')
+      const payload = { message_id: result.message_id }
+      if (scheduled && scheduledFor) {
+        payload.scheduled_for = new Date(scheduledFor).toISOString()
+      }
+      const res = await sendMessage(payload)
+      setSendState(res.status === 'scheduled' ? 'scheduled' : 'sent')
     } catch (err) {
       setSendError(err.message)
       setSendState('error')
@@ -74,15 +72,44 @@ export default function MessageOutput({ result, loading }) {
           <span className="send-success-icon">✓</span>
           <div>
             <strong>Message sent</strong>
-            <p>Delivered to {result.parent_email}</p>
+            <p>Logged for {result.parent_email}</p>
           </div>
-          <span className="send-badge">Placeholder — connect email provider to send for real</span>
+          <span className="demo-badge">Demo mode · Email delivery is future scope</span>
+        </div>
+      )}
+
+      {sendState === 'scheduled' && (
+        <div className="send-success" role="status">
+          <span className="send-success-icon">📅</span>
+          <div>
+            <strong>Message scheduled</strong>
+            <p>Will be delivered to {result.parent_email} at the scheduled time</p>
+          </div>
+          <span className="demo-badge">Demo mode · Email delivery is future scope</span>
         </div>
       )}
 
       {sendState === 'error' && (
-        <div className="send-error" role="alert">
-          ⚠️ {sendError}
+        <div className="send-error" role="alert">⚠️ {sendError}</div>
+      )}
+
+      {showScheduler && sendState === 'idle' && (
+        <div className="scheduler-row">
+          <input
+            type="datetime-local"
+            className="form-input scheduler-input"
+            value={scheduledFor}
+            onChange={(e) => setScheduledFor(e.target.value)}
+            min={new Date().toISOString().slice(0, 16)}
+          />
+          <button
+            className="btn-schedule"
+            onClick={() => handleSend(true)}
+            disabled={!scheduledFor || sendState === 'sending'}
+          >
+            Confirm Schedule
+          </button>
+          <button className="btn-cancel-schedule" onClick={() => setShowScheduler(false)}>Cancel</button>
         </div>
       )}
 
@@ -96,16 +123,29 @@ export default function MessageOutput({ result, loading }) {
           >
             {copied ? '✓ Copied' : '📋 Copy'}
           </button>
-          <button
-            className={`btn-send ${sendState === 'sent' ? 'btn-send--sent' : ''}`}
-            onClick={handleSend}
-            disabled={sendState === 'sending' || sendState === 'sent'}
-            aria-label="Send message to parent"
-          >
-            {sendState === 'sending' && '⏳ Sending…'}
-            {sendState === 'sent' && '✓ Sent'}
-            {(sendState === 'idle' || sendState === 'error') && '📨 Send to Parent'}
-          </button>
+          {sendState === 'idle' || sendState === 'error' ? (
+            <>
+              <button
+                className="btn-send"
+                onClick={() => handleSend(false)}
+                disabled={sendState === 'sending'}
+                aria-label="Send message to parent"
+              >
+                {sendState === 'sending' ? '⏳ Sending…' : '📨 Send Now'}
+              </button>
+              <button
+                className="btn-schedule-toggle"
+                onClick={() => setShowScheduler((v) => !v)}
+                disabled={sendState === 'sending'}
+              >
+                📅 Schedule
+              </button>
+            </>
+          ) : (
+            <button className="btn-send btn-send--sent" disabled>
+              {sendState === 'scheduled' ? '📅 Scheduled' : '✓ Sent'}
+            </button>
+          )}
         </div>
       </div>
     </div>

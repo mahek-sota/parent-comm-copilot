@@ -16,12 +16,20 @@ Built as a prototype to demonstrate how this could integrate into a platform lik
 
 ## Demo
 
-[Add GIF or screenshots here]
+**Login**
+![Login screen](img/login.png)
 
-- Message generation flow
-- Bulk messaging UI
-- Reply inbox
-- CSV upload preview
+**Message Generator**
+![Message generator](img/message-generator.png)
+
+**Send Message**
+![Send message](img/send-message.png)
+
+**Bulk Messaging**
+![Bulk messaging](img/bulk-message.png)
+
+**Parent Reply**
+![Parent reply page](img/parent-reply.png)
 
 ## Key Design Decisions
 
